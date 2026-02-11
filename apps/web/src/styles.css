@@ -1,0 +1,169 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: #eff3ff;
+  background: radial-gradient(circle at top, #1f2a48 0%, #0d1323 55%, #070b14 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.hero p {
+  margin-top: 0.5rem;
+  color: #c8d2f2;
+}
+
+.layout {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+}
+
+.chat-card,
+.plan-card {
+  background: rgba(12, 18, 33, 0.85);
+  border: 1px solid rgba(140, 160, 220, 0.2);
+  border-radius: 16px;
+  backdrop-filter: blur(5px);
+}
+
+.chat-card {
+  display: flex;
+  flex-direction: column;
+  height: 72vh;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.bubble {
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  max-width: 90%;
+  line-height: 1.45;
+}
+
+.bubble.user {
+  align-self: flex-end;
+  background: #3f62f5;
+}
+
+.bubble.assistant {
+  align-self: flex-start;
+  background: #182443;
+}
+
+.composer {
+  display: flex;
+  border-top: 1px solid rgba(140, 160, 220, 0.2);
+  padding: 1rem;
+  gap: 0.75rem;
+}
+
+.composer input {
+  flex: 1;
+  border-radius: 10px;
+  border: 1px solid rgba(146, 164, 230, 0.25);
+  background: #0f1930;
+  color: #ecf2ff;
+  padding: 0.75rem;
+}
+
+.composer button {
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(120deg, #6b8bff, #8a65ff);
+}
+
+.composer button:disabled {
+  opacity: 0.6;
+}
+
+.plan-card {
+  padding: 1rem;
+  overflow-y: auto;
+  height: 72vh;
+}
+
+.plan-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.plan-card li {
+  border: 1px solid rgba(140, 160, 220, 0.2);
+  border-radius: 12px;
+  padding: 0.75rem;
+  background: rgba(12, 22, 44, 0.7);
+}
+
+.task-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.status {
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+}
+
+.status.completed {
+  color: #5de2b3;
+}
+
+.status.failed {
+  color: #ff7f9d;
+}
+
+.status.running,
+.status.pending {
+  color: #f5ce72;
+}
+
+.placeholder {
+  color: #aebada;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .chat-card,
+  .plan-card {
+    height: auto;
+    min-height: 45vh;
+  }
+}
