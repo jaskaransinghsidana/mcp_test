@@ -6,7 +6,7 @@ from fastmcp import FastMCP
 mcp = FastMCP("sample-mcp-tools")
 
 
-@mcp.tool
+@mcp.tool()
 def weather_lookup(city: str) -> dict:
     """Return mocked weather details for a city."""
     city_norm = city.strip().lower()
@@ -19,7 +19,7 @@ def weather_lookup(city: str) -> dict:
     return {"city": city.title(), **details, "timestamp": datetime.utcnow().isoformat()}
 
 
-@mcp.tool
+@mcp.tool()
 def kb_search(query: str) -> dict:
     """Simple local knowledge-base search simulation."""
     snippets = [
@@ -31,7 +31,7 @@ def kb_search(query: str) -> dict:
     return {"query": query, "matches": matches or snippets[:1]}
 
 
-@mcp.tool
+@mcp.tool()
 def summarize_text(text: str) -> dict:
     """Return a tiny summary for arbitrary text."""
     words = text.split()
